@@ -1,0 +1,599 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+    while(1){
+    int list[100],i,j,swap,position, choice,number,search,first,last,middle;
+        printf("\n-----------Menu----------\n");
+        printf("1.Press 1 for bubble sorting.\n");
+        printf("2.Press 2 for  insertion order sorting.\n");
+        printf("3.Press 3 for  selection order sorting.\n");
+        printf("4.Press 4 for  quick order sorting.\n");
+        printf("5.Press 5 for  counting order sorting.\n");
+        printf("6.Press 6 for  radix order sorting.\n");
+        printf("7.Press 0 for exit.\n");
+
+        printf("Enter your choice : ");
+        scanf("%d",&choice);
+
+        if (choice ==1)
+        {
+            printf("You have chosen  bubble sorting algorithm for sorting.\n");
+
+            printf("-----------Menu----------\n");
+            printf("1.Press 1 for ascending order sorting.\n");
+            printf("2.Press 2 for descending order sorting.\n");
+            printf("3.Press 0 for exit.\n");
+
+            printf("Enter your choice : ");
+            scanf("%d",&choice);
+
+            if (choice ==1)
+            {
+                printf("You have chosen ascending order sorting.");
+                printf("\nEnter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                for(i=0;i<(number-1);i++)
+                {
+                    for(j=0;j<number-1;j++)
+                    {
+                        if(list[j]>list[j+1])
+                        {
+                            swap=list[j];
+                            list[j]=list[j+1];
+                            list[j+1]=swap;
+                        }
+                    }
+                }
+                //output
+                printf("\nAfter using bubble sort algorithm in ascending order : ");
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+
+            }
+            else if (choice ==2)
+            {
+                printf("You have chosen descending order sorting.");
+                printf("\nEnter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                for(i=0;i<(number-1);i++)
+                {
+                    for(j=0;j<number-1;j++)
+                    {
+                        if(list[j]<list[j+1])
+                        {
+                            swap=list[j];
+                            list[j]=list[j+1];
+                            list[j+1]=swap;
+                        }
+                    }
+                }
+                //output
+                printf("\nAfter using bubble sort algorithm in descending order : ");
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+            else
+                exit(0);
+
+
+        }
+        else if (choice ==2)
+        {
+            printf("\nYou have chosen insertion sorting algorithm for sorting.\n");
+
+            printf("-----------Menu----------\n");
+            printf("1.Press 1 for ascending order sorting.\n");
+            printf("2.Press 2 for descending order sorting.\n");
+            printf("3.Press 0 for exit.\n");
+
+            printf("Enter your choice : ");
+            scanf("%d",&choice);
+
+            if (choice ==1)
+            {
+                printf("\nYou have chosen ascending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+                // processing
+                for(i=1;i<=number-1;i++)
+                {
+                    j=i;
+                    while(j>0 && list[j]<list[j-1])
+                    {
+                        swap=list[j];
+                        list[j]=list[j-1];
+                        list[j-1]=swap;
+                        j--;
+                    }
+                }
+
+                //output
+                printf("After using insertion sort algorithm in ascending order : ");
+                for(i=0;i<=number-1;i++)
+                    printf("%d ", list[i]);
+
+
+            }
+
+            else if (choice ==2)
+            {
+                printf("\nYou have chosen descending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+                // processing
+                for(i=1;i<=number-1;i++)
+                {
+                    j=i;
+                    while(j>0 && list[j]>list[j-1])
+                    {
+                        swap=list[j];
+                        list[j]=list[j-1];
+                        list[j-1]=swap;
+                        j--;
+                    }
+                }
+
+                //output
+                printf("After using insertion sort algorithm in descending order : ");
+               for(i=0;i<=number-1;i++)
+                    printf("%d ", list[i]);
+
+
+            }
+            else
+                exit(0);
+        }
+        else if (choice ==3)
+        {
+            printf("\nYou have chosen selection sorting algorithm for sorting.\n");
+
+            printf("-----------Menu----------\n");
+            printf("1.Press 1 for ascending order sorting.\n");
+            printf("2.Press 2 for descending order sorting.\n");
+            printf("3.Press 0 for exit.\n");
+
+            printf("Enter your choice : ");
+            scanf("%d",&choice);
+
+            if (choice ==1)
+            {
+                printf("\nYou have chosen ascending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                for(i=0;i<(number-1);i++)
+                {
+                    position=i;
+                    for(j=i+1;j<number;j++)
+                    {
+                        if(list[position]>list[j])
+                        {
+                            position=j;
+                        }
+                    }
+                    if(position!=i)
+                    {
+                        swap=list[i];
+                        list[i]=list[position];
+                        list[position]=swap;
+                    }
+
+                }
+                //output
+                printf("\nAfter using selection sort algorithm in ascending order : ");
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+
+            else if (choice ==2)
+            {
+                printf("\nYou have chosen descending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                for(i=0;i<(number-1);i++)
+                {
+                    position=i;
+                    for(j=i+1;j<number;j++)
+                    {
+                        if(list[position]<list[j])
+                        {
+                            position=j;
+                        }
+                    }
+                    if(position!=i)
+                    {
+                        swap=list[i];
+                        list[i]=list[position];
+                        list[position]=swap;
+                    }
+
+                }
+                //output
+                printf("\nAfter using selection sort algorithm in ascending order : ");
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+            else
+                exit(0);
+        }
+        else if (choice ==4)
+        {
+            printf("\nYou have chosen quick sorting algorithm for sorting.\n");
+
+            printf("-----------Menu----------\n");
+            printf("1.Press 1 for ascending order sorting.\n");
+            printf("2.Press 2 for descending order sorting.\n");
+            printf("3.Press 0 for exit.\n");
+
+            printf("Enter your choice : ");
+            scanf("%d",&choice);
+
+            if (choice ==1)
+            {
+                printf("\nYou have chosen ascending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                int partition (int list[], int start, int end)
+                    {
+                        int pivot = list[end];
+                        int i = (start - 1);
+
+                        for (int j = start; j <= end - 1; j++)
+                        {
+
+                            if (list[j] < pivot)
+                            {
+                                i++;
+                                int t = list[i];
+                                list[i] = list[j];
+                                list[j] = t;
+                            }
+                        }
+                        int t = list[i+1];
+                        list[i+1] = list[end];
+                        list[end] = t;
+                        return (i + 1);
+                    }
+
+                    void quick(int list[], int start, int end)
+                    {
+                        if (start < end)
+                        {
+                            int p = partition(list, start, end);
+                            quick(list, start, p - 1);
+                            quick(list, p + 1, end);
+                        }
+                    }
+                //output
+                printf("\nAfter using quick sort algorithm in ascending order : ");
+                quick(list, 0, number - 1);
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+
+            else if (choice ==2)
+            {
+                printf("\nYou have chosen descending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                int partition (int list[], int start, int end)
+                    {
+                        int pivot = list[end];
+                        int i = (start - 1);
+
+                        for (int j = start; j <= end - 1; j++)
+                        {
+
+                            if (list[j] > pivot)
+                            {
+                                i++;
+                                int t = list[i];
+                                list[i] = list[j];
+                                list[j] = t;
+                            }
+                        }
+                        int t = list[i+1];
+                        list[i+1] = list[end];
+                        list[end] = t;
+                        return (i + 1);
+                    }
+
+                    void quick(int list[], int start, int end)
+                    {
+                        if (start < end)
+                        {
+                            int p = partition(list, start, end);
+                            quick(list, start, p - 1);
+                            quick(list, p + 1, end);
+                        }
+                    }
+                //output
+                printf("\nAfter using quick sort algorithm in descending order : ");
+                quick(list, 0, number - 1);
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+            else
+                exit(0);
+        }
+        else if (choice ==5)
+        {
+            printf("\nYou have chosen counting sorting algorithm for sorting.\n");
+
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                int getMax(int list[], int n)
+                {
+                       int max = list[0];
+                       for(int i = 1; i<n; i++) {
+                          if(list[i] > max)
+                             max = list[i];
+                       }
+                       return max;
+                }
+                void countSort(int list[], int n)
+                    {
+                       int output[n+1];
+                       int max = getMax(list, n);
+                       int count[max+1];
+
+
+                      for (int i = 0; i <= max; ++i)
+                      {
+                        count[i] = 0;
+                      }
+
+                      for (int i = 0; i < n; i++)
+                      {
+                        count[list[i]]++;
+                      }
+
+                       for(int i = 1; i<=max; i++)
+                          count[i] += count[i-1];
+
+
+                      for (int i = n - 1; i >= 0; i--) {
+                        output[count[list[i]] - 1] = list[i];
+                        count[list[i]]--;
+                    }
+
+                       for(int i = 0; i<n; i++) {
+                          list[i] = output[i];
+                       }
+                    }
+
+                //output
+                printf("\nAfter using counting sort algorithm : ");
+                countSort(list, number);
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+        else if (choice ==6)
+        {
+            printf("\nYou have chosen radix sorting algorithm for sorting.\n");
+
+            printf("-----------Menu----------\n");
+            printf("1.Press 1 for ascending order sorting.\n");
+            printf("2.Press 2 for descending order sorting.\n");
+            printf("3.Press 0 for exit.\n");
+
+            printf("Enter your choice : ");
+            scanf("%d",&choice);
+
+            if (choice ==1)
+            {
+                printf("\nYou have chosen ascending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                int getMax(int list[], int number)
+                {
+                   int max = list[0];
+                   for(int i = 1; i<number; i++) {
+                      if(list[i] > max)
+                         max = list[i];
+                   }
+                   return max;
+                }
+
+                void countingSort(int list[], int number, int place)
+                {
+                  int output[number + 1];
+                  int count[10] = {0};
+
+
+                  for (int i = 0; i < number; i++)
+                    count[(list[i] / place) % 10]++;
+
+
+                  for (int i = 1; i < 10; i++)
+                    count[i] += count[i - 1];
+
+
+                  for (int i = number - 1; i >= 0; i--) {
+                    output[count[(list[i] / place) % 10] - 1] = list[i];
+                    count[(list[i] / place) % 10]--;
+                  }
+
+                  for (int i = 0; i < number; i++)
+                    list[i] = output[i];
+                }
+
+
+                void radixsort(int list[], int number)
+                {
+                  int max = getMax(list, number);
+                  for (int place = 1; max / place > 0; place *= 10)
+                    countingSort(list, number, place);
+                }
+
+                //output
+                printf("\nAfter using radix sort algorithm in ascending order : ");
+                radixsort(list, number);
+                for(i=0;i<number;i++)
+                    printf("%d ", list[i]);
+
+            }
+
+            else if (choice ==2)
+            {
+                printf("\nYou have chosen descending order sorting.\n");
+                printf("Enter how many numbers do u need to sort : ");
+                scanf("%d",&number);
+                printf("Enter the numbers : ");
+
+                //input
+                for(i=0;i<number;i++)
+                {
+                    scanf("%d",&list[i]);
+                }
+
+                //processing
+                 int getMax(int list[], int number)
+                {
+                   int max = list[0];
+                   for(int i = 1; i<number; i++) {
+                      if(list[i] > max)
+                         max = list[i];
+                   }
+                   return max;
+                }
+
+                void countingSort(int list[], int number, int place)
+                {
+                  int output[number + 1];
+                  int count[10] = {0};
+
+
+                  for (int i = 0; i < number; i++)
+                    count[(list[i] / place) % 10]++;
+
+
+                  for (int i = 1; i < 10; i++)
+                    count[i] += count[i - 1];
+
+
+                  for (int i = number - 1; i >= 0; i--) {
+                    output[count[(list[i] / place) % 10] - 1] = list[i];
+                    count[(list[i] / place) % 10]--;
+                  }
+
+                  for (int i = 0; i < number; i++)
+                    list[i] = output[i];
+                }
+
+
+                void radixsort(int list[], int number)
+                {
+                  int max = getMax(list, number);
+                  for (int place = 1; max / place > 0; place *= 10)
+                    countingSort(list, number, place);
+                }
+
+                //output
+                printf("\nAfter using radix sort algorithm in descending order : ");
+                radixsort(list, number);
+                for(i=number-1;i>=0;i--)
+                    printf("%d ", list[i]);
+
+            }
+            else
+                exit(0);
+        }
+
+        else
+            exit(0);
+    }
+}
